@@ -236,36 +236,36 @@ public:
 		while(IsOperatorControl())
 		{
 			 teleDrive();
-			 intake();
-			 shoot();
-			 shooterWheel->Set(-(-(oi->getManipJoystick()->GetThrottle()+1)/2));
-			 if(((oi->getManipJoystick()->GetThrottle() + 1)/2) > .5)
-			 {
-			 	shooterMiniWheel->Set(.9 * BATTERY_COMPENSATION);
-			 }
-			 else
-			 {
-			 	shooterMiniWheel->Set(0);
-			 }
-			 //climb();
-			 if(oi->getDriveJoystickButton(3))
-			 {
-				 manipulator->climber->Set(DoubleSolenoid::kForward);
-			 }
-			 else if (oi->getDriveJoystickButton(2))
-			 {
-				 manipulator->climber->Set(DoubleSolenoid::kReverse);
-			 }
-		
-			if(oi->getDriveJoystickButton(4))
-			{
-				cameraAngle->Set(DoubleSolenoid::kForward);
-			}
-			else if (oi->getDriveJoystickButton(5))
-			{
-				cameraAngle->Set(DoubleSolenoid::kReverse);
-			}
-			 smartDashboardPrint();
+//			 intake();
+//			 shoot();
+//			 shooterWheel->Set(-(-(oi->getManipJoystick()->GetThrottle()+1)/2));
+//			 if(((oi->getManipJoystick()->GetThrottle() + 1)/2) > .5)
+//			 {
+//			 	shooterMiniWheel->Set(.9 * BATTERY_COMPENSATION);
+//			 }
+//			 else
+//			 {
+//			 	shooterMiniWheel->Set(0);
+//			 }
+//			 //climb();
+//			 if(oi->getDriveJoystickButton(3))
+//			 {
+//				 manipulator->climber->Set(DoubleSolenoid::kForward);
+//			 }
+//			 else if (oi->getDriveJoystickButton(2))
+//			 {
+//				 manipulator->climber->Set(DoubleSolenoid::kReverse);
+//			 }
+//		
+//			if(oi->getDriveJoystickButton(4))
+//			{
+//				cameraAngle->Set(DoubleSolenoid::kForward);
+//			}
+//			else if (oi->getDriveJoystickButton(5))
+//			{
+//				cameraAngle->Set(DoubleSolenoid::kReverse);
+//			}
+//			 smartDashboardPrint();
 
 		}
 
