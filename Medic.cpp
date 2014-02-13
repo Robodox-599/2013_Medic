@@ -320,8 +320,6 @@ public:
 												 oi->getManipJoystickButton(10), oi->getManipJoystickButton(6), 
 												 oi->getManipJoystickButton(7), false, 0);
 //		shooter->feedShooter(oi->getManipJoystickButton(1));
-
-#ifdef NEW_BOT
 		if(oi->getManipJoystickButton(1))
 		{
 			feeder->Set(DoubleSolenoid::kForward);
@@ -340,7 +338,6 @@ public:
 //		{
 //			shooter->setCameraAngle(false);
 //		}
-#endif
 	}
 	void setVelocity(double input)
 	{
@@ -378,7 +375,6 @@ public:
 		   manipulator->conveyer(-(-oi->getDriveJoystick()->GetThrottle() + 1)/2);
 		}
 
-#ifdef NEW_BOT
 		if(oi->getManipJoystickButton(8))
 		{
 			manipulator->spoiler->Set(DoubleSolenoid::kForward);
@@ -387,7 +383,6 @@ public:
 		{
 			manipulator->spoiler->Set(DoubleSolenoid::kReverse);
 		}
-#endif
 	}	
 	void shooterElevationControl(bool goal1, bool goal2, bool goal3, double speed, bool fastUp, 
 											   bool fastDown, bool slowUp, bool slowDown, bool autonGoal, double autonGoalTarget)
