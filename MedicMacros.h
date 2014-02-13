@@ -1,11 +1,7 @@
 #ifndef MEDIC_MACROS_H
 #define MEDIC_MACROS_H
 
-<<<<<<< HEAD
-=======
 
-
->>>>>>> Medic code repairs
 //Slots
 #define PNEUMATICS_24V_SLOT					    (1)
 #define PNEUMATICS_12V_SLOT						(2)
