@@ -9,16 +9,11 @@ class MedicManipulator
 public:
 	MedicManipulator();
 
-#ifdef NEW_BOT
 	MedicManipulator(UINT8 intakeVictorChannel,
 			         UINT8 conveyerVictorChannel,
 			         UINT8 climberSolA,
 			         UINT8 climberSolB,
 			         UINT8 pnuemClimberSlot);
-#else
-	MedicManipulator(UINT8 intakeVictorChannel,
-			         UINT8 conveyerVictorChannel);
-#endif
 	~MedicManipulator();
 	
 	/*
@@ -51,8 +46,7 @@ public:
 private:
 	Victor *intakeRoller;
 	Victor *horizontalVerticalConveyer;
-#ifdef NEW_BOT
-#endif
+
 	
 };
 #endif

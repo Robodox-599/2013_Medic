@@ -1,6 +1,11 @@
 #ifndef MEDIC_MACROS_H
 #define MEDIC_MACROS_H
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> Medic code repairs
 //Slots
 #define PNEUMATICS_24V_SLOT					    (1)
 #define PNEUMATICS_12V_SLOT						(2)
@@ -49,12 +54,11 @@
 #define SHIFTER_SOLENOID_CHANNEL_B				(2)//24
 #define RPM_SENSOR_POWER						(5)//24
 
-#ifdef NEW_BOT
 #define CLIMBER_SOLENOID_CHANNEL_A				(3)
 #define CLIMBER_SOLENOID_CHANNEL_B				(4)
 #define FEEDER_SOLENOID_CHANNEL_A       		(5)
 #define FEEDER_SOLENOID_CHANNEL_B       		(6)
-#endif
+
 
 #define SPOILER_SOLENOID_CHANNEL_A				(7)//24
 #define SPOILER_SOLENOID_CHANNEL_B				(8)//24
