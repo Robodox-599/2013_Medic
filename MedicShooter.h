@@ -8,12 +8,13 @@
 class MedicShooter
 {
 public:
-
 	MedicShooter();
 	MedicShooter(UINT8 shooterWheelVictorChannel, UINT8 shooterMiniWheelVictorChannel, 
 				 UINT32 shooterWheelIRChannel,UINT8 elevatorVictorChannel, UINT8 anglePotChannel
-				 , UINT8 pnuemFeederSlot, UINT8 feederSolA, UINT8 feederSolB);
-				 
+#ifdef NEW_BOT
+				 , UINT8 pnuemFeederSlot, UINT8 feederSolA, UINT8 feederSolB
+#endif
+				 );
 	~MedicShooter();
 	
 	/*
@@ -96,9 +97,9 @@ private:
 	
 
 
-
+#ifdef NEW_BOT
 	DoubleSolenoid *cameraAngle;
-
+#endif
 	DigitalInput *feederReset;
 	Timer *currentTime;
 	

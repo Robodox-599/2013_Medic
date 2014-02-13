@@ -47,14 +47,15 @@ public:
 
 	Medic()
 	{
-
-		manipulator = new MedicManipulator(INTAKE_ROLLER_VICTOR_CHANNEL, CONVEYER_VICTOR_CHANNEL,
-				 CLIMBER_SOLENOID_CHANNEL_A, CLIMBER_SOLENOID_CHANNEL_B,
-				 PNEUMATICS_12V_SLOT);
-
-		//manipulator = new MedicManipulator(INTAKE_ROLLER_VICTOR_CHANNEL, CONVEYER_VICTOR_CHANNEL);
-
-
+#ifdef NEW_BOT
+		manipulator = new MedicManipulator( INTAKE_ROLLER_VICTOR_CHANNEL,
+											CONVEYER_VICTOR_CHANNEL,
+											CLIMBER_SOLENOID_CHANNEL_A,
+											CLIMBER_SOLENOID_CHANNEL_B,
+											PNEUMATICS_12V_SLOT );
+#else
+		manipulator = new MedicManipulator(INTAKE_ROLLER_VICTOR_CHANNEL, CONVEYER_VICTOR_CHANNEL);
+#endif
 		oi = new MedicOperatorInterface();
 		drive = new MedicDrive();
 		//shooter = new MedicShooter();
