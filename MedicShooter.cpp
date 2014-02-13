@@ -4,17 +4,13 @@ MedicShooter::MedicShooter()
 {
 	MedicShooter(SHOOTER_WHEEL_VICTOR_CHANNEL, SHOOTER_MINI_WHEEL_VICTOR_CHANNEL, SHOOTER_WHEEL_IR_CHANNEL,
 				ELEVATOR_VICTOR_CHANNEL, ANGLE_POT_CHANNEL
-#ifdef NEW_BOT
 				, PNEUMATICS_12V_SLOT, FEEDER_SOLENOID_CHANNEL_A, FEEDER_SOLENOID_CHANNEL_B
-#endif
 				);
 }
 
 MedicShooter::MedicShooter(UINT8 shooterWheelVictorChannel, UINT8 shooterMiniWheelVictorChannel, 
 						   UINT32 shooterWheelIRChannel,UINT8 elevatorVictorChannel, UINT8 anglePotChannel
-#ifdef NEW_BOT
 						   , UINT8 pnuemFeederSlot, UINT8 feederSolA, UINT8 feederSolB
-#endif
 							)
 {
 	shooterWheel = new Victor(shooterWheelVictorChannel);
@@ -29,10 +25,8 @@ MedicShooter::MedicShooter(UINT8 shooterWheelVictorChannel, UINT8 shooterMiniWhe
 //	shooterIRCount = new Counter(new DigitalInput(shooterWheelIRChannel));
 //	shooterIRCount = new Counter(1, shooterWheelIRChannel);
 	shooterIRCount->Start();
-#ifdef NEW_BOT
 	feeder = new DoubleSolenoid(pnuemFeederSlot, feederSolA, feederSolB);
 	cameraAngle = new DoubleSolenoid(PNEUMATICS_24V_SLOT, 3, 4);
-#endif	
 	feederReset = new DigitalInput(1, SHOOTER_TRIGGER_CHANNEL);
 	currentTime = new Timer();
 	currentTime->Start();
@@ -47,20 +41,16 @@ MedicShooter::~MedicShooter()
 	delete shooterWheelIR;
 	delete shooterIRCount;
 	delete elevatorMotor;
-#ifdef NEW_BOT
 	delete feeder;
 	delete cameraAngle;
-#endif
 	
 	shooterWheel = NULL;
 	shooterMiniWheel = NULL;
 	shooterWheelIR = NULL;
 	shooterIRCount = NULL;
 	elevatorMotor = NULL;
-#ifdef NEW_BOT
 	feeder = NULL;
 	cameraAngle = NULL;
-#endif
 }
 
 /*
@@ -284,15 +274,11 @@ void MedicShooter::feedShooter(bool feed)
 	{
 		if(elapsedTime < TIME_TO_FIRE)
 		{
-#ifdef NEW_BOT
 			feeder->Set(DoubleSolenoid::kForward);
-#endif
 		}
 		else if(!(!currentFeederReset && lastFeederReset))
 		{
-#ifdef NEW_BOT
 			feeder->Set(DoubleSolenoid::kReverse);
-#endif
 		}
 		else if(!currentFeederReset && lastFeederReset)
 		{
@@ -339,15 +325,11 @@ void MedicShooter::feedShooterAuto(bool feed, bool frisbeeChambered)
 	{
 		if(elapsedTime < TIME_TO_FIRE)
 		{
-#ifdef NEW_BOT
 			feeder->Set(DoubleSolenoid::kForward);
-#endif
 		}
 		else if(!(!currentFeederReset && lastFeederReset))
 		{
-#ifdef NEW_BOT
 			feeder->Set(DoubleSolenoid::kReverse);
-#endif
 		}
 		else if(!currentFeederReset && lastFeederReset)
 		{
@@ -359,7 +341,6 @@ void MedicShooter::feedShooterAuto(bool feed, bool frisbeeChambered)
 
 void MedicShooter::setCameraAngle(bool up)
 {
-#ifdef NEW_BOT
 	if(up)
 	{
 		cameraAngle->Set(DoubleSolenoid::kForward);
@@ -368,7 +349,6 @@ void MedicShooter::setCameraAngle(bool up)
 	{
 		cameraAngle->Set(DoubleSolenoid::kReverse);
 	}
-#endif
 }
 
 bool MedicShooter::shooterStowed()
