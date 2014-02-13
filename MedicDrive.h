@@ -139,18 +139,11 @@ public:
 	bool isAtTimeSwivelTarget;
 	
 private:
-	
-#ifdef JAGUARS
-	Jaguar *frontLeftMotor;
-	Jaguar *rearLeftMotor;
-	Jaguar *frontRightMotor;
-	Jaguar *rearRightMotor;
-#else
+
 	Talon *frontLeftMotor;
 	Talon *rearLeftMotor;
 	Talon *frontRightMotor;
 	Talon *rearRightMotor;
-#endif
 	
 	MedicOperatorInterface *oi;
 	

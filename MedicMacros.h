@@ -1,19 +1,12 @@
 #ifndef MEDIC_MACROS_H
 #define MEDIC_MACROS_H
 
-//Bots
-#define NEW_BOT
-#ifndef NEW_BOT
-#define JAGUARS
-#endif
-
 //Slots
 #define PNEUMATICS_24V_SLOT					    (1)
 #define PNEUMATICS_12V_SLOT						(2)
 #define ANALOG_BUMPER_SLOT       				(1)
 #define DIGITAL_SIDECAR_SLOT_2					(1)
 
-	
 //Digital Sidecar
 
 //Motors

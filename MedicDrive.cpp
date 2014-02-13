@@ -44,17 +44,11 @@ MedicDrive::MedicDrive(MedicOperatorInterface *opInt)
 	shifter = new DoubleSolenoid(PNEUMATICS_24V_SLOT, 1, 2); //PNEUMATICS_BUMPER_SLOT, SHIFTER_SOLENOID_CHANNEL_A, SHIFTER_SOLENOID_CHANNEL_B
 	shifter->Set(DoubleSolenoid::kReverse);
 	
-#ifdef JAGUARS
-	frontLeftMotor = new Jaguar(1, DRIVE_FRONT_LEFT_MOTOR_CHANNEL);   
-	rearLeftMotor = new Jaguar(1, DRIVE_REAR_LEFT_MOTOR_CHANNEL);   
-	frontRightMotor = new Jaguar(1, DRIVE_FRONT_RIGHT_MOTOR_CHANNEL); 
-	rearRightMotor = new Jaguar(1, DRIVE_REAR_RIGHT_MOTOR_CHANNEL);
-#else
 	frontLeftMotor = new Talon(1, DRIVE_FRONT_LEFT_MOTOR_CHANNEL);   
 	rearLeftMotor = new Talon(1, DRIVE_REAR_LEFT_MOTOR_CHANNEL);   
 	frontRightMotor = new Talon(1, DRIVE_FRONT_RIGHT_MOTOR_CHANNEL); 
 	rearRightMotor = new Talon(1, DRIVE_REAR_RIGHT_MOTOR_CHANNEL);
-#endif
+
 	leftEncoder = new Encoder(LEFT_DRIVE_ENCODER_CHANNEL_A, LEFT_DRIVE_ENCODER_CHANNEL_B, true, Encoder::k1X);
 	rightEncoder = new Encoder(RIGHT_DRIVE_ENCODER_CHANNEL_A, RIGHT_DRIVE_ENCODER_CHANNEL_B, false, Encoder::k1X);
 	
