@@ -34,12 +34,8 @@ class Medic: public IterativeRobot
 	Solenoid *rpmSensor;
 	DigitalInput *rpmIRSensor;
 
-
-	
-
 	DigitalInput *shooterBottomLimit;
 	DigitalInput *shooterTopLimit;
-
 	
 	Timer *timer;
 
