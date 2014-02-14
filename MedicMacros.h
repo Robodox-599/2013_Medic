@@ -100,6 +100,7 @@
 #define GOAL_3	(3)
 
 #define TIME_TO_FIRE (.25)
+
 #define SIGHT_CONSTANT (200)
 
 #endif

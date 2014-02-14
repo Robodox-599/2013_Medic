@@ -119,7 +119,7 @@ void MedicINS::update()
     printf("Accel X = %f\tY=%f\tZ=%f\r\n", accelerometerData.XAxis, accelerometerData.YAxis, 
             accelerometerData.ZAxis);
     psiLast = psi;
-}
+} 
     
 /*
  * relativeRobot()
