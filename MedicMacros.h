@@ -1,3 +1,4 @@
+#include "WPILib.h"
 #ifndef MEDIC_MACROS_H
 #define MEDIC_MACROS_H
 
@@ -11,8 +12,12 @@
 //Digital Sidecar
 
 //Motors
-#define DRIVE_FRONT_LEFT_MOTOR_CHANNEL          (1)
-#define DRIVE_REAR_LEFT_MOTOR_CHANNEL           (2)
+#define DRIVE_RIGHT_MOTOR1_CHANNEL              (1)
+#define DRIVE_RIGHT_MOTOR2_CHANNEL              (2)
+#define DRIVE_RIGHT_MOTOR3_CHANNEL              (3)
+#define DRIVE_LEFT_MOTOR4_CHANNEL               (4)
+#define DRIVE_LEFT_MOTOR5_CHANNEL               (5)
+#define DRIVE_LEFT_MOTOR6_CHANNEL               (6)
 #define DRIVE_FRONT_RIGHT_MOTOR_CHANNEL         (3)
 #define DRIVE_REAR_RIGHT_MOTOR_CHANNEL          (4)
 #define INTAKE_ROLLER_VICTOR_CHANNEL			(6)
@@ -32,12 +37,6 @@
 #define INTAKE_STOP								(0)
 
 	//Drive
-#define DRIVE_SPEED						        (1) //TODO: dummy number
-#define TURN_SPEED						        (1) //TODO: dummy number
-#define AUTO_DRIVE_DEADZONE						(1)//TODO:dummy number
-#define AUTO_TURN_DEADZONE						(1) //TODO:dummy number
-													//degrees
-
 #define AIM_DEADZONE							(10)
 #define TICKS_DEADZONE							(10)
 
