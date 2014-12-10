@@ -18,8 +18,6 @@
 #define DRIVE_LEFT_MOTOR4_CHANNEL               (4)
 #define DRIVE_LEFT_MOTOR5_CHANNEL               (5)
 #define DRIVE_LEFT_MOTOR6_CHANNEL               (6)
-#define DRIVE_FRONT_RIGHT_MOTOR_CHANNEL         (3)
-#define DRIVE_REAR_RIGHT_MOTOR_CHANNEL          (4)
 #define INTAKE_ROLLER_VICTOR_CHANNEL			(6)
 #define	CONVEYER_VICTOR_CHANNEL 				(7)
 #define ELEVATOR_VICTOR_CHANNEL					(8)
@@ -37,6 +35,8 @@
 #define INTAKE_STOP								(0)
 
 	//Drive
+#define DEADZONE                                (.1)
+#define STRAIGHT_DRIVE_DEADZONE                 (.9)
 #define AIM_DEADZONE							(10)
 #define TICKS_DEADZONE							(10)
 
@@ -47,6 +47,7 @@
 	//Pneumatics
 #define SHIFTER_SOLENOID_CHANNEL_A				(1)//24
 #define SHIFTER_SOLENOID_CHANNEL_B				(2)//24
+
 #define RPM_SENSOR_POWER						(5)//24
 
 #define CLIMBER_SOLENOID_CHANNEL_A				(3)

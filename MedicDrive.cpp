@@ -6,7 +6,7 @@ MedicDrive::MedicDrive(MedicOperatorInterface *opInt)
 	linearVelocity = 0;
 	turnSpeed = 0;
 
-	shifter = new DoubleSolenoid(PNEUMATICS_24V_SLOT, 1, 2); //PNEUMATICS_BUMPER_SLOT, SHIFTER_SOLENOID_CHANNEL_A, SHIFTER_SOLENOID_CHANNEL_B
+	shifter = new DoubleSolenoid(PNEUMATICS_24V_SLOT, SHIFTER_SOLENOID_CHANNEL_A, SHIFTER_SOLENOID_CHANNEL_B);
 	shifter->Set(DoubleSolenoid::kReverse);
 	
 	rightMotor1 = new Talon(DRIVE_RIGHT_MOTOR1_CHANNEL);   
@@ -64,17 +64,17 @@ bool MedicDrive::shift(UINT8 highButton, UINT8 lowButton)
 
 void MedicDrive::setLinVelocity(double linVal) 
 {
-	if(linVal > .1) //DEADZONE
+	if(linVal > DEADZONE)
 	{
 		linearVelocity = linVal;
 	}
-	else if(linVal < -.1) //DEADZONE
+	else if(linVal < -DEADZONE)
 	{
 		linearVelocity = linVal;
 	}
 	else 
 	{
-		linearVelocity = 0; //NEUTRAL
+		linearVelocity = 0;
 	}
 	
 }
@@ -92,15 +92,15 @@ double MedicDrive::reduceTurn(double reduceBy)
 
 void MedicDrive::setTurnSpeed(double turn, bool turboButton)
 {
-	if((turn > .1 && !turboButton) || (turn < -.1 && !turboButton)) //DEADZONE
+	if((turn > DEADZONE*2 && !turboButton) || (turn < -DEADZONE*2 && !turboButton))
 	{
 		turnSpeed = turn * REDUCTION;
 	}
-	if(turn < .1 && turn > -.1) //DEADZONE
+	if(turn < DEADZONE*2 && turn > -DEADZONE*2)
 	{
 		turnSpeed = 0; //NEUTRAL;
 	}
-	if((turn > .1 && turboButton) || (turn < -.1 && turboButton)) //DEADZONE
+	if((turn > DEADZONE*2 && turboButton) || (turn < -DEADZONE*2 && turboButton))
 	{
 		turnSpeed = turn;
 	}
@@ -120,9 +120,9 @@ void MedicDrive::setLeftMotors(double velocity)
 
 void MedicDrive::setRightMotors(double velocity)
 {
-	rightMotor1->Set(-velocity, SYNC_STATE_OFF);
-	rightMotor2->Set(-velocity, SYNC_STATE_OFF);
-	rightMotor3->Set(-velocity, SYNC_STATE_OFF);
+	rightMotor1->Set(velocity, SYNC_STATE_OFF);
+	rightMotor2->Set(velocity, SYNC_STATE_OFF);
+	rightMotor3->Set(velocity, SYNC_STATE_OFF);
 }
 
 void MedicDrive::drive()

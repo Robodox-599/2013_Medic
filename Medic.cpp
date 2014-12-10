@@ -1,6 +1,5 @@
 #include "MedicDrive.h"
 #include "MedicOperatorInterface.h"
-#include "MedicMacros.h"
 
 int step;
 
@@ -9,13 +8,8 @@ class Medic: public IterativeRobot
 	MedicDrive *drive;
 	Compressor *comp599;
 	MedicOperatorInterface *oi;
-	Solenoid *rpmSensor;
-	DigitalInput *rpmIRSensor;
-
-
-	DigitalInput *shooterBottomLimit;
-	DigitalInput *shooterTopLimit;
-
+//	Solenoid *rpmSensor;
+//	DigitalInput *rpmIRSensor;
 	
 	Timer *timer;
 
@@ -23,12 +17,11 @@ public:
 
 	Medic()
 	{
-
 		oi = new MedicOperatorInterface();
 		drive = new MedicDrive();
-		comp599 = new Compressor(1, 1, 1, 1);//TODO: add real values
-		rpmSensor = new Solenoid(PNEUMATICS_24V_SLOT, 5);
-		rpmIRSensor = new DigitalInput(1, SHOOTER_WHEEL_IR_CHANNEL);
+		comp599 = new Compressor(1, 1, 1, 1);//TODO: check values
+//		rpmSensor = new Solenoid(PNEUMATICS_24V_SLOT, 5);
+//		rpmIRSensor = new DigitalInput(1, SHOOTER_WHEEL_IR_CHANNEL);
 
 		oi->dashboard->init();
 		comp599->Start();
